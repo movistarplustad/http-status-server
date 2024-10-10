@@ -1,6 +1,6 @@
 {
   "name": "http-status",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HTTP Status Codes",
   "main": "lib/index.mjs",
   "bin": {
