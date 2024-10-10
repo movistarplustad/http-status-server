@@ -14,6 +14,18 @@
       const submit = document.querySelector('#submit');
       const timeout = document.querySelector('#timeout');
       const anchor = document.querySelector('#anchor');
+      const cors = document.querySelector('#cors');
+
+      cors.addEventListener('click', function () {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/cors', true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE ) {
+            console.log(xhr.status);
+          }
+        }
+        xhr.send();
+      })
 
       form.addEventListener('submit', function (e) {
         let timeoutString = "";
@@ -66,6 +78,13 @@
           </section>
         </article>
 
+      </article>
+      <article>
+        <header>
+          <h2>Cors</h2>
+          <section>
+            <button id="cors">Cors</button>
+          </section>
       </article>
     </section>
   </main>

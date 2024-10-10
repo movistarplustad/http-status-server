@@ -38,7 +38,7 @@ form input[type=text] {
   border-radius: var(--spacing);
 }
 
-form button[type=submit] {
+form button[type=submit], button {
   padding: var(--spacing);
   background-color: var(--color-primary);
   color: var(--color-clear);
