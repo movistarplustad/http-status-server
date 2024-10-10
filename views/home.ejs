@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Html Status Codes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+      const status = document.querySelector('#status');
+      const url = document.querySelector('#url');
+      const submit = document.querySelector('#submit');
+      const timeout = document.querySelector('#timeout');
+      const anchor = document.querySelector('#anchor');
+
+      form.addEventListener('submit', function (e) {
+        let timeoutString = "";
+        e.preventDefault();
+        const value = status.value;
+        if (timeout.checked) {
+          timeoutString = "?timeout=60000"
+        }
+        const urlString = `http://<%= ip %>:<%= port%>/status/${value}${timeoutString}`;
+        url.innerHTML = urlString
+        anchor.href = urlString;
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <main>
+    <section>
+      <header>
+        <h1>Html Status Codes</h1>
+      </header>
+      <article>
+        <header>
+          <h2>Status</h2>
+        </header>
+        <article>
+          <section>
+            <form>
+              <p>
+                Introduzca el código de estado que desea comprobar
+              </p>
+              <div>
+                <label for="status">Status code</label>
+                <input type="text" id="status" name="status" required>
+              </div>
+              <div>
+                <label for="timeout">Timeout</label>
+                <input type="checkbox" id="timeout" name="timeout">
+              </div>
+              <div>
+                <button type="submit" id="submit">Enviar</button>
+              </div>
+            </form>
+          </section>
+          <section>
+            <a href="" id="anchor" target="_blank">
+              <span id="url"></span>
+            </a>
+          </section>
+        </article>
+
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>
